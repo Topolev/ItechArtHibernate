@@ -23,16 +23,6 @@ public class StudentResultDaoJPATest {
         }
     }
 
-    @Test
-    public void insertNewRow(){
-        StudentResult studentResult = new StudentResult();
-        studentResult.setDate(new Date());
-        /*studentResult.setStudentId(Long.valueOf(14));
-        studentResult.setTrainingCourseId(Long.valueOf(5));*/
-        studentResult.setNote("Test");
-        studentResult.setResult(Integer.valueOf(5));
 
-        studentResultDao.create(studentResult);
-    }
 
 }

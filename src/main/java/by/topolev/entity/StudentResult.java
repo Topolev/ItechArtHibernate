@@ -32,15 +32,25 @@ public class StudentResult implements Serializable{
     @Column(name = "note", length = 50)
     private String note;
 
-    @Column (name = "result", nullable = false)
+    @Column (name = "result")
     private Integer result;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
 
+
+
     public String toString(){
-        return String.format("sId: %d; tId: %d; date: %s, note: %s ", studentId, trainingCourseId, date, note);
+
+        StringBuilder str = new StringBuilder();
+        if (exam != null) {
+            str.append("Training course: ").append(exam.getTrainingCourse().getName()).append("; ");
+            str.append("Teacher: ").append(exam.getTeacher().getFirstname()).append(" ").append(exam.getTeacher().getLastname()).append("; ");
+        }
+        str.append("Date: ").append(date).append("; ");
+        str.append("Result: ").append(result);
+        return str.toString();
     }
 
     public Long getStudentId() {
@@ -99,4 +109,6 @@ public class StudentResult implements Serializable{
     public void setStudent(Student student) {
         this.student = student;
     }
+
+
 }

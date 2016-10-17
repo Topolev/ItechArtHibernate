@@ -9,4 +9,5 @@ import java.util.List;
  */
 public interface StudentDao extends GenericDao<Student>{
     List<Student> findAll();
+    List<Student> findStudentsWithDetails();
 }

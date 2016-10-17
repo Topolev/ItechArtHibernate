@@ -11,7 +11,7 @@ import java.util.List;
 
 public class GenericDaoImpl<T> implements GenericDao<T> {
 
-	private EntityManager em = Persistence.createEntityManagerFactory("TOPOLEV").createEntityManager();
+	protected EntityManager em = Persistence.createEntityManagerFactory("TOPOLEV").createEntityManager();
 	public Class<T> type;
 	
 	GenericDaoImpl(Class<T> type){
@@ -19,16 +19,16 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 	};
 
 	public List<T> findAll() {
-		em.getTransaction().begin();
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<T> cq = cb.createQuery(type);
 		Root<T> from = cq.from(type);
 		CriteriaQuery<T> select = cq.select(from);
 		TypedQuery<T> q = em.createQuery(cq);
 		List<T> allitems = q.getResultList();
-		em.getTransaction().commit();
 		return allitems;
 	}
+
+
 
 	public T create (T entity){
 		em.getTransaction().begin();
@@ -41,7 +41,6 @@ public class GenericDaoImpl<T> implements GenericDao<T> {
 
 		//em.merge(entity);
 		em.getTransaction().begin();
-		System.out.println(em.contains(entity));
 		em.remove(em.contains(entity) ? entity : em.merge(entity));
 		em.getTransaction().commit();
 

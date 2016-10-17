@@ -23,7 +23,8 @@ public class TrainingCourse {
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
 
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "student_result",
                joinColumns = @JoinColumn(name = "training_course_id"),
                inverseJoinColumns = @JoinColumn( name = "student_id"))
@@ -31,7 +32,7 @@ public class TrainingCourse {
 
     @Override
     public String toString(){
-        return String.format("Training course: id=%s; name=%s", id, name);
+        return String.format("Training course:  name=%s; Teacher: %s %s", name, teacher.getFirstname(), teacher.getLastname());
     }
 
     public Long getId() {

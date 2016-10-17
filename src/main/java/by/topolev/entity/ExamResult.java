@@ -33,6 +33,15 @@ public class ExamResult implements Serializable {
     @Column(name = "note", length = 50)
     private String note;
 
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        str.append("Training sourse: ").append(exam.getTrainingCourse().getName()).append("; ");
+        str.append("Teacher: ").append(teacher.getFirstname()).append(" ").append(teacher.getLastname()).append("; ");
+        str.append("Result: ").append(result);
+
+        return str.toString();
+    }
+
     public Long getId() {
         return id;
     }

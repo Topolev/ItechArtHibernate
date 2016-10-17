@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Vladimir on 13.10.2016.
@@ -43,11 +44,12 @@ public class Student implements Serializable {
                 inverseJoinColumns = @JoinColumn( name = "training_course_id"))
     private List<TrainingCourse> trainingCourses = new ArrayList<TrainingCourse>();
 
-    /*@OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<StudentResult> studentResults = new ArrayList<StudentResult>();
 
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ExamResult> examResults;*/
+
+    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ExamResult> examResults = new ArrayList<ExamResult>();
 
     public Student() {
     }
@@ -100,7 +102,7 @@ public class Student implements Serializable {
         this.sex = sex;
     }
 
-/*
+
     public List<StudentResult> getStudentResults() {
         return studentResults;
     }
@@ -115,7 +117,7 @@ public class Student implements Serializable {
 
     public void setExamResults(List<ExamResult> examResults) {
         this.examResults = examResults;
-    }*/
+    }
 
     public List<TrainingCourse> getTrainingCourses() {
         return trainingCourses;
@@ -134,8 +136,9 @@ public class Student implements Serializable {
 
     }
 
+
     public void addTrainingCourse(TrainingCourse trainingCourse){
-        trainingCourse.addStudent(this);
+        //trainingCourse.addStudent(this);
         this.trainingCourses.add(trainingCourse);
     }
 

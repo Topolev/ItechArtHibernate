@@ -1,11 +1,15 @@
 package by.topolev.dao;
 
 import by.topolev.entity.Student;
+import by.topolev.entity.StudentResult;
+import by.topolev.entity.TrainingCourse;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
+import javax.persistence.metamodel.PluralAttribute;
 import java.util.List;
 
 /**
@@ -29,4 +33,16 @@ public class StudentDaoJPA extends GenericDaoImpl<Student> implements StudentDao
         }
     }
 
+    public List<Student> findStudentsWithDetails() {
+
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<Student> cq = cb.createQuery(type);
+        Root<Student> root = cq.from(Student.class);
+        root.fetch("studentResults");
+        CriteriaQuery<Student> select = cq.select(root);
+        TypedQuery<Student> q = em.createQuery(cq);
+        List<Student> allitems = q.getResultList();
+
+        return allitems;
+    }
 }

@@ -133,6 +133,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/resources/log4j.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/resources/persistence.tld">
           <value>
             <set />
@@ -159,6 +164,46 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/test/java/by/topolev/dao/TrainingCourseTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/java/by/topolev/spring/AppConfig.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/java/by/topolev/spring/HelloWorldAnnotation.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/java/by/topolev/spring/HelloWorldXML.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/java/by/topolev/spring/beans/RenderMessage.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/java/by/topolev/spring/beans/RenderMessageConsole.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/resources/app-context-annotation.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="J:/!Java/workspace1/ITechArtSpring/src/main/resources/app-context-xml.xml">
           <value>
             <set />
           </value>

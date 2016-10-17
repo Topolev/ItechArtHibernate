@@ -21,25 +21,6 @@ public class TeacherDaoJPATest {
         }
     }
 
-    @Test
-    public void saveTeacher(){
-        Teacher teacher = new Teacher();
-        teacher.setLastname("Topolev");
-        teacher.setFirstname("Vl");
 
-        TrainingCourse trainingCourse = new TrainingCourse();
-        trainingCourse.setName("Test training course");
-        trainingCourse.setTeacher(teacher);
-        teacher.addTrainingCourse(trainingCourse);
-
-        teacherDao.create(teacher);
-
-        System.out.println("Save teacher course. Teacher id = " + teacher.getId());
-        List<TrainingCourse> trainingCourses = teacher.getTrainingCourses();
-        for (TrainingCourse trainingCourse1 : trainingCourses){
-            System.out.println("       training course id = "  + trainingCourse1.getId());
-        }
-
-    }
 
 }
